@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java EE学习," />
 
 
 
@@ -87,12 +87,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="喵呜~">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="ibatis获取主键方式在ibatis时代我们通过  SELECT LAST_INSERT_ID()方式获取主键DAO接口内方法声明12//返回的值为新插入数据的IDLong insert(Student student); Mapper文件配置123456789&amp;lt;insert id=&quot;insert&quot; parameterClass=&quot;Student&quot;&amp;gt;        insert in">
+<meta name="keywords" content="Java EE学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis获取插入数据主键">
+<meta property="og:url" content="http://yoursite.com/2017/06/19/MyBatis获取插入数据主键/index.html">
 <meta property="og:site_name" content="喵呜~">
+<meta property="og:description" content="ibatis获取主键方式在ibatis时代我们通过  SELECT LAST_INSERT_ID()方式获取主键DAO接口内方法声明12//返回的值为新插入数据的IDLong insert(Student student); Mapper文件配置123456789&amp;lt;insert id=&quot;insert&quot; parameterClass=&quot;Student&quot;&amp;gt;        insert in">
+<meta property="og:updated_time" content="2017-06-19T05:53:50.496Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="喵呜~">
+<meta name="twitter:title" content="MyBatis获取插入数据主键">
+<meta name="twitter:description" content="ibatis获取主键方式在ibatis时代我们通过  SELECT LAST_INSERT_ID()方式获取主键DAO接口内方法声明12//返回的值为新插入数据的IDLong insert(Student student); Mapper文件配置123456789&amp;lt;insert id=&quot;insert&quot; parameterClass=&quot;Student&quot;&amp;gt;        insert in">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/19/MyBatis获取插入数据主键/"/>
 
 
 
 
 
-  <title> 喵呜~ </title>
+  <title> MyBatis获取插入数据主键 | 喵呜~ </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -151,9 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,9 +239,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -268,10 +271,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/06/19/MyBatis获取插入数据主键/" itemprop="url">
-                  MyBatis获取插入数据主键
-                </a>
+                MyBatis获取插入数据主键
               
             
           </h1>
@@ -322,9 +322,7 @@
       
 
       
-        
-          
-            <h2 id="ibatis获取主键方式"><a href="#ibatis获取主键方式" class="headerlink" title="ibatis获取主键方式"></a>ibatis获取主键方式</h2><p>在ibatis时代我们通过  SELECT LAST_INSERT_ID()方式获取主键<br>DAO接口内方法声明<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//返回的值为新插入数据的ID</span></div><div class="line"><span class="function">Long <span class="title">insert</span><span class="params">(Student student)</span></span>;</div></pre></td></tr></table></figure></p>
+        <h2 id="ibatis获取主键方式"><a href="#ibatis获取主键方式" class="headerlink" title="ibatis获取主键方式"></a>ibatis获取主键方式</h2><p>在ibatis时代我们通过  SELECT LAST_INSERT_ID()方式获取主键<br>DAO接口内方法声明<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//返回的值为新插入数据的ID</span></div><div class="line"><span class="function">Long <span class="title">insert</span><span class="params">(Student student)</span></span>;</div></pre></td></tr></table></figure></p>
 <p>Mapper文件配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterClass</span>=<span class="string">"Student"</span>&gt;</span></div><div class="line">        insert into student</div><div class="line">          (name, class, grade)</div><div class="line">        values</div><div class="line">          (#name#, #class#, #grade#);</div><div class="line">        <span class="tag">&lt;<span class="name">selectKey</span>  <span class="attr">keyProperty</span>=<span class="string">"id"</span> <span class="attr">resultClass</span>=<span class="string">"java.lang.Long"</span>&gt;</span></div><div class="line">            SELECT LAST_INSERT_ID()</div><div class="line">        <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>使用方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student student = <span class="keyword">new</span> Student(<span class="string">"张三"</span>,<span class="string">"1"</span>,<span class="string">"3"</span>)<span class="comment">//初始化student的name，class，grade</span></div><div class="line">Long id = studentDao.insert(student);   <span class="comment">//获取插入ID</span></div></pre></td></tr></table></figure></p>
 <h2 id="Mybatis-获取主键方式"><a href="#Mybatis-获取主键方式" class="headerlink" title="Mybatis 获取主键方式"></a>Mybatis 获取主键方式</h2><p>DAO接口方法声明<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这里返回值仅仅表示受影响的数据条数，如果插入成功返回1，如果插入失败返回0</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(Student student)</span></span>;</div></pre></td></tr></table></figure></p>
@@ -332,42 +330,56 @@
 <p>使用方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Student student = <span class="keyword">new</span> Student(<span class="string">"张三"</span>,<span class="string">"1"</span>,<span class="string">"3"</span>)<span class="comment">//初始化student的name，class，grade</span></div><div class="line"><span class="keyword">int</span> count = studentDao.insert(student);   <span class="comment">//获取插入ID</span></div><div class="line"><span class="keyword">if</span>(count == <span class="number">1</span>)&#123;</div><div class="line">  Long id = student.getId();  <span class="comment">//得到主键</span></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  System.out.println(<span class="string">"插入数据错误"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>没错，这里插入后会直接返回含有插入ID的student，和ibatis的差别还是有点大的</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java-EE学习/" rel="tag"># Java EE学习</a>
+          
+        </div>
+      
+
+      
+        
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -375,6 +387,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -394,8 +410,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -448,6 +473,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ibatis获取主键方式"><span class="nav-number">1.</span> <span class="nav-text">ibatis获取主键方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis-获取主键方式"><span class="nav-number">2.</span> <span class="nav-text">Mybatis 获取主键方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -555,6 +596,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
