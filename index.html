@@ -324,9 +324,16 @@
       
         
           
-            <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>测试版本控制</p>
+          测试测试版本控制
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/30/测试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -444,9 +451,10 @@
 
       
         
-          <h2 id="ibatis获取主键方式"><a href="#ibatis获取主键方式" class="headerlink" title="ibatis获取主键方式"></a>ibatis获取主键方式</h2><p>在ibatis时代我们通过  SELECT LAST_INSERT_ID()方式获取主键<br>DAO接口内方法声明<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//返回的值为新插入数据的ID</span></div><div class="line"><span class="function">Long <span class="title">insert</span><span class="params">(Student student)</span></span>;</div></pre></td></tr></table></figure></p>
-<p>Mapper文件配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterClass</span>=<span class="string">"Student"</span>&gt;</span></div><div class="line">        insert into student</div><div class="line">          (name, class, grade)</div><div class="line">        values</div><div class="line">          (#name#, #class#, #grade#);</div><div class="line">        <span class="tag">&lt;<span class="name">selectKey</span>  <span class="attr">keyProperty</span>=<span class="string">"id"</span> <span class="attr">resultClass</span>=<span class="string">"java.lang.Long"</span>&gt;</span></div><div class="line">            SELECT LAST_INSERT_ID()</div><div class="line">        <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>使用方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student student = <span class="keyword">new</span> Student(<span class="string">"张三"</span>,<span class="string">"1"</span>,<span class="string">"3"</span>)<span class="comment">//初始化student的name，class，grade</span></div><div class="line">Long id = studentDao.insert(student);   <span class="comment">//获取插入ID</span></div></pre></td></tr></table></figure></p>
+          
+          ibatis获取主键方式在ibatis时代我们通过  SELECT LAST_INSERT_ID()方式获取主键DAO接口内方法声明12//返回的值为新插入数据的IDLong insert(Student student);
+Mapper文件配置123456789&lt;insert id="ins
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/19/MyBatis获取插入数据主键/#more" rel="contents">
